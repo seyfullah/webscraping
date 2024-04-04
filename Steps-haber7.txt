@@ -1,0 +1,21 @@
+scrapy startproject haber7
+cd haber7\haber7\Spiders
+scrapy genspider haber7spider www.haber7.com
+
+scrapy shell
+fetch('https://www.haber7.com/')
+
+response.css('div.subhead-slider')
+subheaders = response.css('div.subhead-slider a')
+len(subheaders)
+subheader = subheaders[0]
+subheader.css('div.title ::text').get()
+subheader.css('a').attrib['href']
+exit
+
+scrapy crawl haber7spider
+
+scrapy shell
+fetch('https://www.haber7.com/')
+response.css('li.next a ::attr(href)').get()
+exit

@@ -1,0 +1,11 @@
+python --version
+pip --version
+python -m ensurepip --upgrade
+pip install virtualenv
+pip install colorama
+pip install pylint
+pip install virtualenv
+python -m venv venv
+venv\Scripts\activate
+pip install scrapy
+pip install ipython

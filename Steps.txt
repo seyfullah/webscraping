@@ -1,0 +1,21 @@
+scrapy startproject bookscraper
+cd bookscraper\bookscraper\Spiders
+scrapy genspider bookspider books.toscrape.com
+
+scrapy shell
+fetch('https://books.toscrape.com/')
+response.css('article.product_pod')
+books = response.css('article.product_pod')
+len(books)
+book = books[0]
+book.css('h3 a::text').get()
+book.css('.product_price .price_color::text').get()
+book.css('h3 a').attrib['href']
+exit
+
+scrapy crawl bookspider
+
+scrapy shell
+fetch('https://books.toscrape.com/')
+response.css('li.next a ::attr(href)').get()
+exit
