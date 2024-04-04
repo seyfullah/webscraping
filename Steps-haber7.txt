@@ -17,5 +17,13 @@ scrapy crawl haber7spider
 
 scrapy shell
 fetch('https://www.haber7.com/')
-response.css('li.next a ::attr(href)').get()
+headlines = response.css('div.top-headline div.col-md-3')
+len(headlines)
+
+headlinesections = response.css('div.headline-slider a.headline-slider-item')
+len(headlinesections)
+headlinesection = headlinesections[0]
+headlinesection.css('div.title ::text').get()
+headlinesection.css('a').attrib['href']
+
 exit
